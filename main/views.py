@@ -27,7 +27,8 @@ def create(request):
     return redirect('detail', new_blog.id)
 
 def mainpage(request):
-    return render(request, 'main/mainpage.html')
+    blogs = Blog.objects.all()
+    return render(request, 'main/mainpage.html',{'blogs':blogs})
 
 def secondpage(request):
     return render(request, 'main/secondpage.html')
